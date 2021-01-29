@@ -13,14 +13,26 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, ap
     var stopListening = api.listenMqtt((err, event) => {
         if(err) return console.error(err);
         var prefix = "p!";
-        var msgcommand = event.body;
-        var pcmd = msgcommand.split(' ');
-        var helpmsg = "Phaiwan BOT \n============\n\np!say <msg>"
-
         switch(event.type) {
             case "message":
-                if(pcmd['0'] === prefix+"help"){
-                    api.sendMessage(helpmsg, event.threadID);
+
+                const args = event.body.slice(prefix.length).trim().split(/ +/g);
+                let cmd = args.shift().toLowerCase();
+
+                if (!event.body.startsWith(prefix)) return;
+
+                try {
+
+                    delete require.cache[require.resolve(`./commands/${cmd}.js`)];
+
+                    let commandFile = require(`./commands/${cmd}.js`);
+            
+                    commandFile.run(event, args, api);
+            
+                } catch (e) {
+            
+                    console.log(e.stack);
+            
                 }
         }
     });
