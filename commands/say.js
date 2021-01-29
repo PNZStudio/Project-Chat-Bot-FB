@@ -1,18 +1,36 @@
 exports.run = (event, args, api) => {
 
-    api.setMessageReaction(":love:", event.messageID);
-    if(!args['1']){
-        api.sendMessage(args['0'], event.threadID);
-    }else if(!args['0']){
-        api.sendMessage("➤ p!say <msg> <amount>", event.threadID);
-    }else{
-        if(args['1'] > 5){
-            api.sendMessage("✖ อย่าหาใช้มากกว่า 5", event.threadID);
-        }else{
-            for (let index = 0; index < args['1']; index++) {
-                api.sendMessage(args['0'], event.threadID);
+
+
+    if(args['0']){
+        if(args['1']){
+            var messahe = "";
+            for (let index = 1; index < 100; index++) {
+                if(args[index]){
+                    var messahe = messahe+" "+args[index];
+                }else{
+                    break;
+                }
             }
-    
+            if(args['0'] > 5){
+                api.sendMessage("✖ อย่าหาใช้มากกว่า 5", event.threadID);
+                api.setMessageReaction(":dislike:", event.messageID);
+
+            }else{
+                api.setMessageReaction(":love:", event.messageID);
+                for (let index = 0; index < args['0']; index++) {
+                    api.sendMessage(messahe, event.threadID);
+                }
+        
+            }    
+        }else{
+            api.sendMessage("➤ p!say <amount> <message>", event.threadID);
+            api.setMessageReaction(":dislike:", event.messageID);
+
         }
+    }else{
+        api.sendMessage("➤ p!say <amount> <message>", event.threadID);
+        api.setMessageReaction(":dislike:", event.messageID);
+
     }
 }

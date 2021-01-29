@@ -11,7 +11,6 @@ login({ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }, (err, 
     });
 
     console.log("[OK] Bot is running");
-
     var stopListening = api.listenMqtt((err, event) => {
         if (err) return console.error(err);
         var prefix = "p!";
