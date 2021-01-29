@@ -6,7 +6,7 @@ exports.run = (event, args, api) => {
             if(args['0'].startsWith("@")){
 
                 var nick = "";
-                for (let index = 1; index < 100; index++) {
+                for (let index = 2; index < 100; index++) {
                     if(args[index]){
                         var nick = nick +" "+args[index];
                     }else{
