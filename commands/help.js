@@ -4,9 +4,9 @@ exports.run = (event, args, api) => {
         2:"➤ p!say <amount> <message>",
         3:"➤ p!ping",
         4:"➤ p!emoji <emoji>",
-        5:"➤p!color <1-15>",
-        6:"➤p!nick <@user> <nick name>",
-        7:"➤p!covid "
+        5:"➤ p!color <1-15>",
+        6:"➤ p!nick <@user> <nick name>",
+        7:"➤ p!covid "
     };
     var help = "";
     for (let index = 1; index < 100; index++) {
