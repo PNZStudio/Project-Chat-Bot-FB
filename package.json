@@ -1,0 +1,28 @@
+{
+  "name": "project-chat-bot-fb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "facebook-chat-api": "^1.8.0",
+    "ping": "^0.4.0",
+    "request": "^2.88.2",
+    "tcp-ping": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "fbot": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isloth42/Project-Chat-Bot-FB.git"
+  },
+  "author": "Phaiwan Studio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isloth42/Project-Chat-Bot-FB/issues"
+  },
+  "homepage": "https://github.com/isloth42/Project-Chat-Bot-FB#readme"
+}

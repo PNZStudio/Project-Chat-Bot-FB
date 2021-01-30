@@ -6,8 +6,7 @@ exports.run = (event, args, api) => {
         4:"➤ p!emoji <emoji>",
         5:"➤p!color <1-15>",
         6:"➤p!nick <@user> <nick name>",
-        7:" ",
-        8:"𝙋𝙤𝙬𝙚𝙧 𝙗𝙮 ♥ 𝙋𝙝𝙖𝙞𝙬𝙖𝙣",        
+        7:"➤p!covid "
     };
     var help = "";
     for (let index = 1; index < 100; index++) {
@@ -18,6 +17,6 @@ exports.run = (event, args, api) => {
         }
     }
     api.setMessageReaction(":like:", event.messageID);
-    api.sendMessage(help, event.threadID);
+    api.sendMessage(help+"\n𝙋𝙤𝙬𝙚𝙧 𝙗𝙮 ♥ 𝙋𝙝𝙖𝙞𝙬𝙖𝙣", event.threadID);
 
 }
